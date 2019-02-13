@@ -38,9 +38,9 @@ public class PolytechnicConsole{
 
         }
 
-        /*Application: while(true){
-
-        }*/
+        Application: while(true){
+            break Application;
+        }
 
         System.out.println("\n------------------------------------------------------------------");
         System.out.println("\nGoodbye ...");

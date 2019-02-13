@@ -1,7 +1,9 @@
 package com.kmagwenzi.polytechnic.repositories;
 
-public interface UserDao{
+import com.kmagwenzi.polytechnic.models.User;
 
-   public void saveUserDetails();
+public interface UserDao{
+   
+   public void saveUserDetails(User user);
   
 }
