@@ -13,12 +13,10 @@ public class UserServiceImplementation implements UserService {
     private static String input;
     private static Scanner scan = new Scanner(System.in);
 
-    private User user;
     private UserDao userDao = new UserDaoImplementation();
 
     @Override
     public void captureUserDetails(User user) {
-
 
         String flag = "capture";
 
@@ -32,20 +30,13 @@ public class UserServiceImplementation implements UserService {
                 UserServiceImplementation.setUserRole(user);
             }
 
-            System.out.println("\nUser{");
-
-            System.out.println("Name: " + user.getName());
-            System.out.println("Gender: " + user.getGender());
-            System.out.println("Email: " + user.getEmail());
-            System.out.println("Role: " + user.getRole());
-
-            System.out.println("}");
+            System.out.println(user);
 
             System.out.println("\nSub Menu");
             System.out.println("--------------------------");
             System.out.println("\tSave             [1]");
             System.out.println("\tRe-Enter Details [2]");
-            System.out.println("\tEdit             [3-6 | Name[3] Gender[4] Email[5] Role[6]");
+            System.out.println("\tEdit             [3-6] | Name[3] Gender[4] Email[5] Role[6]");
             System.out.println("\tCancel           [0]");
             System.out.println("--------------------------");
 

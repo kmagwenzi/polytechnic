@@ -46,5 +46,19 @@ public class User{
   }
 
 
+  @Override
+  public String toString(){
+
+    return "\nUser{"
+
+      + "Name: " + this.getName()
+      + "Gender: " + this.getGender()
+      + "Email: " + this.getEmail()
+      + "Role: " + this.getRole()
+
+    + "}";
+
+
+  }
   
 }
