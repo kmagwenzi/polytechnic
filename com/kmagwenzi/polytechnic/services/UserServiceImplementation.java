@@ -16,6 +16,47 @@ public class UserServiceImplementation implements UserService {
     private UserDao userDao = new UserDaoImplementation();
 
     @Override
+    public void userLogin() {
+        
+        User user =  new User();
+        
+        DataCapture: while (true) {
+
+            UserServiceImplementation.getUserEmail(user);
+            userDao.getUser()
+
+            UserServiceImplementation.getSelection();
+
+            switch (selection) {
+
+                case 1:
+                    // Save
+
+                case 2:
+                    // Re-Enter All
+
+
+                case 3:
+                    // Edit Name
+                    
+                case 4:
+                    // Edit Gender
+                    
+                case 0:
+
+                    break DataCapture;
+
+                default:
+
+                    System.out.println("\nInvalid selection, Please enter values 0-6");
+
+            }
+
+
+        }
+    }
+
+    @Override
     public void captureUserDetails(User user) {
 
         String flag = "capture";
@@ -24,10 +65,10 @@ public class UserServiceImplementation implements UserService {
 
             if (flag.equals("capture")) {
                 System.out.print("\nPlease Enter User Details");
-                UserServiceImplementation.setUserName(user);
-                UserServiceImplementation.setUserGender(user);
-                UserServiceImplementation.setUserEmail(user);
-                UserServiceImplementation.setUserRole(user);
+                UserServiceImplementation.getUserName(user);
+                UserServiceImplementation.getUserGender(user);
+                UserServiceImplementation.getUserEmail(user);
+                UserServiceImplementation.getUserRole(user);
             }
 
             System.out.println(user);
@@ -57,25 +98,25 @@ public class UserServiceImplementation implements UserService {
                 case 3:
                     // Edit Name
                     flag = "edit";
-                    UserServiceImplementation.setUserName(user);
+                    UserServiceImplementation.getUserName(user);
                     break;
 
                 case 4:
                     // Edit Gender
                     flag = "edit";
-                    UserServiceImplementation.setUserGender(user);
+                    UserServiceImplementation.getUserGender(user);
                     break;
 
                 case 5:
                     // Edit Email
                     flag = "edit";
-                    UserServiceImplementation.setUserEmail(user);
+                    UserServiceImplementation.getUserEmail(user);
                     break;
 
                 case 6:
                     // Edit Role
                     flag = "edit";
-                    UserServiceImplementation.setUserRole(user);
+                    UserServiceImplementation.getUserRole(user);
                     break;
 
                 case 0:
@@ -94,13 +135,13 @@ public class UserServiceImplementation implements UserService {
     }
 
 
-    private static void setUserName(User user){
+    private static void getUserName(User user){
         System.out.println();
         System.out.print("Name: ");
         user.setName(scan.next());
     }
 
-    private static void setUserGender(User user){
+    private static void getUserGender(User user){
         System.out.println();
             System.out.println("Please enter M or F | M = Male, F = Female. ");
             System.out.println("Gender: ");
@@ -124,14 +165,14 @@ public class UserServiceImplementation implements UserService {
 
     }
 
-    private static void setUserEmail(User user){
+    private static void getUserEmail(User user){
         System.out.println();
         System.out.print("Email: ");
         user.setEmail(scan.next());
     }
 
 
-    private static void setUserRole(User user){
+    private static void getUserRole(User user){
         System.out.println();
         System.out.print("Role: ");
         user.setEmail(scan.next());
@@ -145,12 +186,7 @@ public class UserServiceImplementation implements UserService {
     }
 
 
-    @Override
-    public void userLogin() {
-        
-    }
-
-
+   
 
 }
 
