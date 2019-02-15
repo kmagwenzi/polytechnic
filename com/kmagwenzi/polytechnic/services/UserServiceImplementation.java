@@ -8,9 +8,9 @@ import com.kmagwenzi.polytechnic.repositories.UserDaoImplementation;
 import java.util.Scanner;
 
 public class UserServiceImplementation implements UserService {
+   
 
     private static int selection;
-    private static String input;
     private static Scanner scan = new Scanner(System.in);
 
     private UserDao userDao = new UserDaoImplementation();
@@ -46,7 +46,7 @@ public class UserServiceImplementation implements UserService {
 
                 case 1:
                     // Save
-                    userDao.saveUserDetails();
+                    userDao.saveUserDetails(user);
                     break DataCapture;
 
                 case 2:
@@ -105,18 +105,16 @@ public class UserServiceImplementation implements UserService {
             System.out.println("Please enter M or F | M = Male, F = Female. ");
             System.out.println("Gender: ");
 
-            Gender gender;
-
             Validate:
             while (true) {
-                switch (UserServiceImplementation.scan.next()) {
+                switch ((UserServiceImplementation.scan.next()).toUpperCase()) {
 
                     case "M":
-                        user.setGender(gender.MALE);
+                        user.setGender(Gender.MALE);
                         break Validate;
 
                     case "F":
-                        user.setGender(gender.FEMALE);
+                        user.setGender(Gender.FEMALE);
                         break Validate;
 
                     default:
@@ -144,6 +142,11 @@ public class UserServiceImplementation implements UserService {
         System.out.println();
         System.out.print("selection: ");
         return scan.nextInt();
+    }
+
+    @Override
+    public void saveUserDetails(User user) {
+
     }
 
 

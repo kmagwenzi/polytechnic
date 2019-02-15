@@ -28,7 +28,7 @@ public class PolytechnicConsole{
                     // Sign Up
                     User user = new User();
                     userService.captureUserDetails(user);
-                break;
+                break Title;
 
                 case 0:
                     // Exit
@@ -38,9 +38,9 @@ public class PolytechnicConsole{
 
         }
 
-        /*Application: while(true){
-
-        }*/
+        Application: while(true){
+            break Application;
+        }
 
         System.out.println("\n------------------------------------------------------------------");
         System.out.println("\nGoodbye ...");
