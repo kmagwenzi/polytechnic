@@ -22,13 +22,15 @@ public class PolytechnicConsole{
             switch (PolytechnicConsole.selection) {
                 case 1: 
                     // Log In
+                    userService.userLogin();
                 break Title;
 
                 case 2:
                     // Sign Up
                     User user = new User();
                     userService.captureUserDetails(user);
-                break Title;
+
+                break;
 
                 case 0:
                     // Exit
@@ -48,8 +50,6 @@ public class PolytechnicConsole{
 
     private static void showTitle() {
         
-            
-
         System.out.println("\n");
         System.out.println("                     .---|__|           .-.     |~~~|");
         System.out.println("                  .--|===|--|_          |_|     |~~~|--.");
@@ -73,7 +73,9 @@ public class PolytechnicConsole{
         System.out.println("   Exit             	[0]");
        
 
-	}
+    }
+    
+    
     
     private static int getSelection(){
         System.out.println();
