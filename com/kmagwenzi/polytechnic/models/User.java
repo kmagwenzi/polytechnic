@@ -2,12 +2,12 @@ package com.kmagwenzi.polytechnic.models;
 
 public class User{
 
-
-
-  String role;
-  String name;
-  String email;
+  private String role;
+  private String name;
+  private String email;
   Gender gender;
+  private String password;
+
 
   public User() {
     super();
@@ -45,6 +45,15 @@ public class User{
      this.gender = gender;
   }
 
+  public String getPassword() {
+    return this.password;
+  }
+
+  public void setPassword(String password) {
+     this.password = password;
+  }
+
+  
 
   @Override
   public String toString(){
@@ -55,9 +64,8 @@ public class User{
       + "Gender: " + this.getGender()
       + "Email: " + this.getEmail()
       + "Role: " + this.getRole()
-
+    
     + "}";
-
 
   }
   

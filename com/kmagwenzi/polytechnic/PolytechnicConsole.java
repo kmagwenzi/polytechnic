@@ -28,7 +28,7 @@ public class PolytechnicConsole{
                     // Sign Up
                     User user = new User();
                     userService.captureUserDetails(user);
-                break;
+                break Title;
 
                 case 0:
                     // Exit
