@@ -46,11 +46,10 @@ public class User{
   }
 
   public void setGender(String gender) {
-    
-    if(gender.equalsIgnoreCase("Male")){
-       this.gender = this.gender.MALE; 
+    if (gender.equalsIgnoreCase("Male")) {
+      this.gender = Gender.MALE;  
     }else{
-      this.gender = this.gender.FEMALE;
+      this.gender = Gender.FEMALE;
     }
     
  }

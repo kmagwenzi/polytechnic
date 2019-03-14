@@ -1,10 +1,11 @@
 package com.kmagwenzi.polytechnic.services;
 
+import com.kmagwenzi.polytechnic.controllers.Controller;
 import com.kmagwenzi.polytechnic.models.User;
 
 public interface UserService{
 
   public void captureUserDetails(User user);
-  public void userLogin();
+  public Controller userLogin();
 
 }

@@ -1,5 +1,6 @@
 package com.kmagwenzi.polytechnic;
 
+import com.kmagwenzi.polytechnic.controllers.Controller;
 import com.kmagwenzi.polytechnic.models.User;
 import com.kmagwenzi.polytechnic.services.UserService;
 import com.kmagwenzi.polytechnic.services.UserServiceImplementation;
@@ -15,6 +16,9 @@ public class PolytechnicConsole{
 
     public static void main(String[] args){
 
+        Controller controller = null;
+        User user = new User();
+
         Title: while (true) {
             PolytechnicConsole.showTitle();
             PolytechnicConsole.selection = PolytechnicConsole.getSelection();
@@ -22,12 +26,12 @@ public class PolytechnicConsole{
             switch (PolytechnicConsole.selection) {
                 case 1: 
                     // Log In
-                    userService.userLogin();
+                    controller = userService.userLogin();
                 break Title;
 
                 case 2:
                     // Sign Up
-                    User user = new User();
+                   
                     userService.captureUserDetails(user);
 
                 break;
@@ -41,7 +45,14 @@ public class PolytechnicConsole{
         }
 
         Application: while(true){
-            break Application;
+            controller.showMenu();
+            PolytechnicConsole.selection = PolytechnicConsole.getSelection();
+            controller.executeSelection(user);
+
+            if (PolytechnicConsole.selection == 0) {
+                break Application;
+            }
+                
         }
 
         System.out.println("\n------------------------------------------------------------------");
@@ -69,8 +80,8 @@ public class PolytechnicConsole{
         System.out.println("                  |___/");                                                                     
         System.out.println("______________________________________________________________");            	   
         System.out.println();
-        System.out.println("   Login        	   	[1]   	  Sign Up               [2]");
-        System.out.println("   Exit             	[0]");
+        System.out.println("   Login        	  [1]   	  Sign Up            [2]");
+        System.out.println("   Exit               [0]");
        
 
     }

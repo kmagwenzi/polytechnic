@@ -2,13 +2,9 @@ package com.kmagwenzi.polytechnic.repositories;
 
 import com.kmagwenzi.polytechnic.models.User;
 import java.sql.Connection;
-//import java.sql.DriverManager;
-//import java.sql.Statement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-//import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 public class UserDaoImplementation implements UserDao {
 
@@ -34,7 +30,6 @@ public class UserDaoImplementation implements UserDao {
             ps.close();
 
         } catch (SQLException e){
-            // TODO Auto-generated catch block
             System.out.println("Test Failed");
             e.printStackTrace();
         }
@@ -74,7 +69,6 @@ public class UserDaoImplementation implements UserDao {
             }
             
         } catch (SQLException e){
-            // TODO Auto-generated catch block
             System.out.println("Query Failed: SQLException - " + e);
             e.printStackTrace();
         }

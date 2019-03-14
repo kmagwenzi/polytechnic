@@ -1,5 +1,9 @@
 package com.kmagwenzi.polytechnic.services;
 
+import com.kmagwenzi.polytechnic.controllers.AdminController;
+import com.kmagwenzi.polytechnic.controllers.Controller;
+import com.kmagwenzi.polytechnic.controllers.StaffController;
+import com.kmagwenzi.polytechnic.controllers.StudentController;
 import com.kmagwenzi.polytechnic.models.Gender;
 import com.kmagwenzi.polytechnic.models.User;
 import com.kmagwenzi.polytechnic.repositories.UserDao;
@@ -16,9 +20,10 @@ public class UserServiceImplementation implements UserService {
     private UserDao userDao = new UserDaoImplementation();
 
     @Override
-    public void userLogin() {
+    public Controller userLogin() {
         
         User user =  new User();
+        Controller controller = null;
         
         DataCapture: while (true) {
 
@@ -30,10 +35,20 @@ public class UserServiceImplementation implements UserService {
             // Check validate user input and return user if valid
             user = userDao.checkLogin(user.getEmail(), user.getPassword());
 
-
             // returun user object
-          
-           
+            if (user != null) {
+                controller = UserServiceImplementation.getApplicationController(user);    
+            }
+            
+            System.out.println("\nLogin Failed: Try entering a different combination of email and password");
+
+            System.out.println("\nSub Menu");
+            System.out.println("--------------------------");
+            System.out.println("\tRe-Enter Details [1]");
+            System.out.println("\tEdit             [2-3] | Email[2] Password[3] ");
+            System.out.println("\tCancel           [0]");
+            System.out.println("--------------------------");
+
 
             UserServiceImplementation.getSelection();
 
@@ -44,7 +59,6 @@ public class UserServiceImplementation implements UserService {
 
                 case 2:
                     // Re-Enter All
-
 
                 case 3:
                     // Edit Name
@@ -64,6 +78,7 @@ public class UserServiceImplementation implements UserService {
 
 
         }
+        return controller;
     }
 
    
@@ -203,8 +218,32 @@ public class UserServiceImplementation implements UserService {
         return scan.nextInt();
     }
 
+    private static Controller getApplicationController(User user){
+        
+        
+        Controller applicationController = null;
 
-   
+        switch (user.getRole().toLowerCase()) {
+            case "admin":
+                applicationController = new AdminController(user);    
+            break;
+
+            case "staff":
+                applicationController = new StaffController(user);    
+            break;
+        
+            case "student":
+                applicationController = new StudentController(user);    
+            break;
+         
+            default:
+                break;
+        }
+
+        return applicationController;
+
+    }
+
 
 }
 
