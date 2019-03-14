@@ -2,6 +2,7 @@ package com.kmagwenzi.polytechnic.repositories;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 
 class DataSource{
 
@@ -9,7 +10,7 @@ class DataSource{
     private static final String USER_NAME = "root";
     private static final String PASSWORD = "";
 
-    static Connection getConnection(){
+    static Connection getConnection() throws SQLException { 
         return DriverManager.getConnection(URL, USER_NAME, PASSWORD);
     }
     

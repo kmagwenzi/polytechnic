@@ -22,8 +22,18 @@ public class UserServiceImplementation implements UserService {
         
         DataCapture: while (true) {
 
+        
+            // Get user email and password
             UserServiceImplementation.getUserEmail(user);
-            userDao.getUser()
+            UserServiceImplementation.getUserPassword(user);
+
+            // Check validate user input and return user if valid
+            user = userDao.checkLogin(user.getEmail(), user.getPassword());
+
+
+            // returun user object
+          
+           
 
             UserServiceImplementation.getSelection();
 
@@ -55,6 +65,8 @@ public class UserServiceImplementation implements UserService {
 
         }
     }
+
+   
 
     @Override
     public void captureUserDetails(User user) {
@@ -171,11 +183,17 @@ public class UserServiceImplementation implements UserService {
         user.setEmail(scan.next());
     }
 
+    private static void getUserPassword(User user) {
+        java.io.Console console = System.console();
+        String password = new String(console.readPassword("Password: "));
+        user.setPassword(password);
+    }
+
 
     private static void getUserRole(User user){
         System.out.println();
         System.out.print("Role: ");
-        user.setEmail(scan.next());
+        user.setRole(scan.next());
 
     }
 

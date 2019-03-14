@@ -45,6 +45,16 @@ public class User{
      this.gender = gender;
   }
 
+  public void setGender(String gender) {
+    
+    if(gender.equalsIgnoreCase("Male")){
+       this.gender = this.gender.MALE; 
+    }else{
+      this.gender = this.gender.FEMALE;
+    }
+    
+ }
+
   public String getPassword() {
     return this.password;
   }
@@ -58,14 +68,14 @@ public class User{
   @Override
   public String toString(){
 
-    return "\nUser{"
+    return "\nUser{\n"
 
-      + "Name: " + this.getName()
-      + "Gender: " + this.getGender()
-      + "Email: " + this.getEmail()
-      + "Role: " + this.getRole()
+      + "\tName: " + this.getName()
+      + "\tGender: " + this.getGender()
+      + "\tEmail: " + this.getEmail()
+      + "\tRole: " + this.getRole()
     
-    + "}";
+    + "\n}";
 
   }
   
