@@ -5,12 +5,14 @@ import com.kmagwenzi.polytechnic.models.User;
 public class StudentController extends Controller{
 
   public StudentController(User user) {
-    
+
 	}
 
-@Override
-  public void showMenu() {
+  @Override
+  public void executeSelection(User user) {
 
   }
+
+
   
 }
