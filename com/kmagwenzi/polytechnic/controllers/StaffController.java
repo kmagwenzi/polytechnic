@@ -7,8 +7,9 @@ public class StaffController extends Controller{
   public StaffController(User user) {
 	}
 
+
   @Override
-  public void executeSelection(User user) {
+  public void executeSelection() {
 
   }
 
